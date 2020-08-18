@@ -1,1 +1,16 @@
-<p>personal-profiles works!</p>
+<div class="navigation-bar">
+    <div class="navigation-bar__user-controls">
+        <img class="navigation-bar__user-image" src="https://us.123rf.com/450wm/asmati/asmati1702/asmati170212136/73034874-letter-p-sign-design-template-element-orange-icon-on-black-background-old-phosphor-monitor-crt-.jpg?ver=6" alt="This is a my logo" >
+        <p class="navigation-bar__user-name">Phuc Dang</p>
+    </div>
+    <div *ngIf="links.length > 0" class="navigation-bar__link-controls">
+        <div *ngFor="let link of links" class="navigation-bar__link">
+            <a [class.active]="activeLinkByName===link.name" 
+                [href]="link.url"
+                (click)="navigateUrl(link.name)" >
+                {{ link.name }}
+            </a>
+            <div *ngIf="activeLinkByName===link.name" class="navigation-bar__dot"></div>
+        </div>
+    </div>
+</div>
